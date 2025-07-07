@@ -1,0 +1,32 @@
+{
+  "name": "apps-devkit",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A devkit to create apps for the Track component platform.",
+  "main": "main.jsx",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narvar/apps-devkit.git"
+  },
+  "author": "Narvar",
+  "license": "ISC",
+  "homepage": "https://github.com/narvar/apps-devkit#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.10",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "emittery": "^1.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zod": "^3.25.49"
+  }
+}

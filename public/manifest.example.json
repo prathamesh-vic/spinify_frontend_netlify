@@ -1,0 +1,63 @@
+{
+  "manifestVersion": 1,
+  "componentVersion": "1.0.8",
+  "componentUrl": "http://localhost:5173",
+  "description": "<p>Display your Rokt Ad by filling out the fields below.</p>",
+  "properties": [
+    {
+      "id": "accountId",
+      "name": "Rokt Account ID",
+      "dataType": "string",
+      "inputType": "text",
+      "placeholder": "Account ID (e.g., 12345678901)",
+      "required": true
+    },
+    {
+      "id": "identifier",
+      "name": "Page Identifier",
+      "dataType": "string",
+      "inputType": "text",
+      "placeholder": "Page Identifier (e.g., QATracking)"
+    },
+    {
+      "id": "sandbox",
+      "name": "Sandbox",
+      "dataType": "boolean",
+      "inputType": "checkbox"
+    }
+  ],
+  "scopes": [
+    "retailerMoniker",
+    "versionName",
+    "segmentId",
+    "segmentName",
+    "localeLanguage",
+    "localeCountry",
+    "type",
+    "trackingType",
+    "category",
+    "trackingStatus",
+    "trackingStatusCode",
+    "carrier",
+    "trackingNumbers",
+    "orderNumbers",
+    "destinationZip",
+    "originZip",
+    "originCountry",
+    "destinationCountry",
+    "service",
+    "orderDate",
+    "shipDate",
+    "retailerDcId",
+    "productCategory",
+    "promiseDate",
+    "orderApiEnabled",
+    "secured",
+    "itemIds",
+    "itemNumber",
+    "mainShipmentId",
+    "email",
+    "phone",
+    "customerMarketingAttributes"
+  ]
+}
