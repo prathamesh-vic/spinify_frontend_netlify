@@ -7,7 +7,7 @@ const fetchOffersAPI = ({ retailerMoniker, carrier, trackingNumber }) => {
   console.log("Fetching offers from backend (GET API)...");
 
   // Build URL with query params
-  const url = new URL("http://localhost:4567/api/v1/offers");
+  const url = new URL("https://spinify-backend.onrender.com/api/v1/offers");
   if (carrier) url.searchParams.append("carrier", carrier);
   if (trackingNumber) url.searchParams.append("trackingNumber", trackingNumber);
 
@@ -57,7 +57,7 @@ const fetchWinningOfferAPI = ({
   orderNumber,
 }) => {
   console.log("Requesting winning offer from backend...");
-  return fetch("http://localhost:4567/api/v1/winning_offer", {
+  return fetch("https://spinify-backend.onrender.com/api/v1/winning_offer", {
     method: "POST",
     headers: {
       "Retailer-Moniker": retailerMoniker, // Replace with actual retailer moniker
