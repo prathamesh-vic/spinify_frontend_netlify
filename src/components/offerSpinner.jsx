@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchOffersAPI } from "../apiClient";
 import Wheel from "./wheel";
 import SlotMachine from "./slotMachine";
+import WonOffers from "./wonOffers";
 
 const OfferSpinner = ({ config, context: contextData }) => {
   const colorTheme = config?.colorTheme || "default";
@@ -11,29 +12,35 @@ const OfferSpinner = ({ config, context: contextData }) => {
   const [offers, setOffers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [currentView, setCurrentView] = useState("spinner"); // "spinner" or "coupons"
+  const [spinAllowed, setSpinAllowed] = useState(true);
+  const [wonOffers, setWonOffers] = useState([]);
+
+  const loadOffers = async () => {
+    try {
+      setError(null);
+      console.log(
+        "Fetching offers with retailerMoniker:",
+        contextData.retailerMoniker
+      );
+      const offersData = await fetchOffersAPI({
+        retailerMoniker: contextData.retailerMoniker,
+        carrier: contextData.carrier,
+        trackingNumber: contextData.trackingNumbers?.[0],
+      });
+      setSpinAllowed(offersData["can_spin"]);
+      setOffers(offersData["offers"].slice(0, 9));
+      setWonOffers(offersData["won_offers"]);
+    } catch (err) {
+      console.error("Failed to load offers:", err);
+      setError("Could not load offers. Please refresh the page.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   // --- Data Fetching Effect ---
   useEffect(() => {
-    const loadOffers = async () => {
-      try {
-        setError(null);
-        console.log(
-          "Fetching offers with retailerMoniker:",
-          contextData.retailerMoniker
-        );
-        const offersData = await fetchOffersAPI({
-          retailerMoniker: contextData.retailerMoniker,
-          carrier: contextData.carrier,
-          trackingNumber: contextData.trackingNumbers?.[0],
-        });
-        setOffers(offersData.slice(0, 9));
-      } catch (err) {
-        console.error("Failed to load offers:", err);
-        setError("Could not load offers. Please refresh the page.");
-      } finally {
-        setIsLoading(false);
-      }
-    };
     loadOffers();
   }, []);
 
@@ -60,26 +67,42 @@ const OfferSpinner = ({ config, context: contextData }) => {
         </div>
       )}
 
-      {config.spinnerType === "slotMachine" ? (
-        <SlotMachine
+      {currentView === "coupons" || !spinAllowed ? (
+        <WonOffers
           config={config}
           contextData={contextData}
-          offers={offers}
-          colorTheme={colorTheme}
-          pointerColor={pointerColor}
-          isLoading={isLoading}
-          setError={setError}
+          wonCoupons={wonOffers}
+          spinAllowed={spinAllowed}
+          setCurrentView={setCurrentView}
         />
       ) : (
-        <Wheel
-          config={config}
-          contextData={contextData}
-          offers={offers}
-          wheelColorTheme={colorTheme}
-          pointerColor={pointerColor}
-          isLoading={isLoading}
-          setError={setError}
-        />
+        <>
+          {config.spinnerType === "slotMachine" ? (
+            <SlotMachine
+              config={config}
+              contextData={contextData}
+              offers={offers}
+              colorTheme={colorTheme}
+              pointerColor={pointerColor}
+              isLoading={isLoading}
+              setError={setError}
+              setCurrentView={setCurrentView}
+              updateOffers={loadOffers}
+            />
+          ) : (
+            <Wheel
+              config={config}
+              contextData={contextData}
+              offers={offers}
+              wheelColorTheme={colorTheme}
+              pointerColor={pointerColor}
+              isLoading={isLoading}
+              setError={setError}
+              setCurrentView={setCurrentView}
+              updateOffers={loadOffers}
+            />
+          )}
+        </>
       )}
     </div>
   );

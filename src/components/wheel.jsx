@@ -10,6 +10,8 @@ const Wheel = (props) => {
     offers: segments,
     wheelColorTheme,
     pointerColor,
+    setCurrentView,
+    updateOffers,
   } = props;
   const { isLoading, setError } = props;
 
@@ -179,6 +181,12 @@ const Wheel = (props) => {
           {isSpinning ? config.text.spinningButton : config.text.spinButton}
         </button>
       </div>
+      <button
+        onClick={() => setCurrentView("coupons")}
+        className="mt-6 w-full text-center text-yellow-400 hover:text-yellow-300 transition"
+      >
+        View My Won Coupons
+      </button>
       {/* Result Popup Modal */}
       <ResultPopUp
         config={config}
@@ -187,6 +195,7 @@ const Wheel = (props) => {
         setShowResultPopup={setShowResultPopup}
         isCodeCopied={isCodeCopied}
         setIsCodeCopied={setIsCodeCopied}
+        updateOffers={updateOffers} // Pass updateOffers to refresh offers after spin
       />
     </>
   );

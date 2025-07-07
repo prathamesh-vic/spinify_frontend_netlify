@@ -5,7 +5,7 @@ import ResultPopUp from "./resultPopUp";
 const SlotMachine = (props) => {
   console.log("SlotMachine component rendered with props:", props);
   const { config, contextData, offers, colorTheme } = props;
-  const { isLoading, setError } = props;
+  const { isLoading, setError, setCurrentView, updateOffers } = props;
 
   const spinButtonColor = config?.spinButtonColor || "#00a63e"; // Default button color
   const spinButtonTextColor = config?.spinButtonTextColor || "#FFFFFF"; //
@@ -70,7 +70,12 @@ const SlotMachine = (props) => {
         orderNumbers: contextData.orderNumbers?.[0],
       });
       setWinningCoupon(winner);
-      if (winner.couponCode != "BLNT") {
+      if (winner.offerCode == "BLNT") {
+        const firstReelIndex = Math.floor(Math.random() * symbols.length);
+        newReels[0] = symbols[firstReelIndex];
+        newReels[1] = symbols[(firstReelIndex + 1) % symbols.length];
+        newReels[2] = symbols[(firstReelIndex + 2) % symbols.length];
+      } else {
         const winningSymbol = getRandomSymbol();
         newReels[0] = winningSymbol;
         newReels[1] = winningSymbol;
@@ -101,7 +106,6 @@ const SlotMachine = (props) => {
 
   return (
     <>
-      {/* Wheel Container */}
       <div className="font-sans bg-gray-900 flex flex-col items-center justify-center p-4 text-white antialiased">
         <div
           className="w-full max-w-md mx-auto bg-gray-800 rounded-2xl shadow-2xl p-6 md:p-8 border-t-4 border-yellow-400"
@@ -154,6 +158,12 @@ const SlotMachine = (props) => {
               {isSpinning ? config.text.spinningButton : config.text.spinButton}
             </button>
           </main>
+          <button
+            onClick={() => setCurrentView("coupons")}
+            className="mt-6 w-full text-center text-yellow-400 hover:text-yellow-300 transition"
+          >
+            View My Won Coupons
+          </button>
         </div>
 
         {/* Result Popup Modal */}
@@ -164,6 +174,7 @@ const SlotMachine = (props) => {
           setShowResultPopup={setShowResultPopup}
           isCodeCopied={isCodeCopied}
           setIsCodeCopied={setIsCodeCopied}
+          updateOffers={updateOffers} // Pass loadOffers to refresh offers after spin
         />
 
         {/* Custom CSS for Animations */}

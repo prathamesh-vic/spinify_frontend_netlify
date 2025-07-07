@@ -6,6 +6,7 @@ const ResultPopUp = (props) => {
   console.log("ResultPopUp component rendered with props:", props);
   const { config, winningCoupon, showResultPopup } = props;
   const { isCodeCopied, setIsCodeCopied, setShowResultPopup } = props;
+  const { updateOffers } = props; // Assuming loadOffers is passed as a prop
 
   const isWinner = winningCoupon && winningCoupon.offerCode != "BLNT";
   console.log(winningCoupon);
@@ -34,12 +35,13 @@ const ResultPopUp = (props) => {
 
   const handleClosePopup = () => {
     setShowResultPopup(false);
+    updateOffers(); // Assuming updateOffers is a function to refresh the offers
   };
 
   return (
     <>
       {showResultPopup && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50 animate-fade-in">
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-8 z-50 animate-fade-in">
           <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-2xl p-8 text-center max-w-sm w-full border-t-4 border-green-400 transform scale-100 animate-zoom-in">
             {isWinner && (
               <span
@@ -62,7 +64,6 @@ const ResultPopUp = (props) => {
               {winningCoupon.label}
               {/* Congratulations! Use this code for 25% off your next purchase. */}
             </p>
-
             {isWinner ? (
               <div className="bg-gray-700/50 border-2 border-dashed border-green-400 rounded-lg py-3 px-4 mb-6">
                 <p className="text-gray-400 text-sm">Your Offer Code:</p>
@@ -73,7 +74,6 @@ const ResultPopUp = (props) => {
             ) : (
               <div className="my-4 text-5xl">☹️</div>
             )}
-
             {isWinner && (
               <button
                 onClick={handleCopyCode}
@@ -89,13 +89,31 @@ const ResultPopUp = (props) => {
                   : config.text.copyButton}
               </button>
             )}
-
-            <button
-              onClick={handleClosePopup}
-              className="w-full bg-green-500 text-white font-bold py-3 rounded-lg hover:bg-green-400 focus:outline-none focus:ring-4 focus:ring-green-500/50 transition-all duration-300 transform hover:scale-105"
-            >
-              {config.text.closeButton}
-            </button>
+            {isWinner ? (
+              <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                <a
+                  href={winningCoupon.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-1/2 bg-blue-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 transform hover:scale-105 text-center"
+                >
+                  Redeem Offer
+                </a>
+                <button
+                  onClick={handleClosePopup}
+                  className="w-full sm:w-1/2 bg-green-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-400 focus:outline-none focus:ring-4 focus:ring-green-500/50 transition-all duration-300 transform hover:scale-105"
+                >
+                  {config.text.closeButton}
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={handleClosePopup}
+                className="w-full bg-green-500 text-white font-bold py-3 rounded-lg hover:bg-green-400 focus:outline-none focus:ring-4 focus:ring-green-500/50 transition-all duration-300 transform hover:scale-105"
+              >
+                {config.text.closeButton}
+              </button>
+            )}
           </div>
         </div>
       )}

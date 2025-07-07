@@ -27,11 +27,7 @@ const fetchOffersAPI = ({ retailerMoniker, carrier, trackingNumber }) => {
     .then((json) => {
       console.log("Offers fetched successfully:", json.data);
       const data = json.data;
-      if (data["can_spin"] === true) {
-        return data["offers"];
-      } else {
-        return data["won_offers"];
-      }
+      return data;
     });
 };
 
