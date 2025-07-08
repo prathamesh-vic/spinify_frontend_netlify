@@ -23,8 +23,11 @@ export default function Spinner({
   );
   return (
     <div
-      className="w-full flex items-center justify-center p-4"
-      style={{ backgroundColor: config.backgroundColor || "#111826" }}
+      className="w-full flex items-center justify-center p-4 hide-scrollbar"
+      style={{
+        backgroundColor: config.backgroundColor || "#111826",
+        overflow: "hidden",
+      }}
     >
       {/* To use the default configuration, just render:
         <OfferSpinner />
@@ -32,6 +35,20 @@ export default function Spinner({
         To customize it, pass the config prop:
       */}
       <OfferSpinner config={config} context={contextData} />
+
+      {/* Custom CSS for Animations and iframe fix */}
+      <style jsx="true" global="true">{`
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .hide-scrollbar {
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+        }
+      `}</style>
     </div>
   );
 }

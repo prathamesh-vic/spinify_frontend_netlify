@@ -125,7 +125,7 @@ const Wheel = (props) => {
 
         {/* The Wheel */}
         <div
-          className="relative w-full h-full rounded-full border-8 border-gray-700 shadow-2xl transition-transform ease-out"
+          className="relative w-full h-full rounded-full border-6 border-gray-700 shadow-2xl transition-transform ease-out"
           style={{
             transform: `rotate(${rotation}deg)`,
             transitionDuration: `${isSpinning ? config.spinDuration : 0}s`,

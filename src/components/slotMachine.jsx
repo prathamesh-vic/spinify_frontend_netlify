@@ -123,10 +123,10 @@ const SlotMachine = (props) => {
                 color: spinButtonColor,
               }}
             >
-              LUCKY SPIN
+              {config.text.spinnerTitle}
             </h1>
             <p className="text-gray-400 mt-2">
-              Spin to win an exclusive coupon!
+              {config.text.spinnerSubtitle}
             </p>
           </header>
 
@@ -165,7 +165,7 @@ const SlotMachine = (props) => {
             onClick={() => setCurrentView("coupons")}
             className="mt-6 w-full text-center text-yellow-400 hover:text-yellow-300 transition"
           >
-            View My Won Coupons
+            {config.text.spinnerViewMyOffers}
           </button>
         </div>
 

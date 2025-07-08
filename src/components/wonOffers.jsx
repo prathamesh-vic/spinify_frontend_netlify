@@ -15,7 +15,7 @@ const WonOffers = (props) => {
   };
   return (
     <>
-      <div className="font-sans bg-gray-900 flex flex-col items-center justify-center p-4 text-white antialiased">
+      <div className="font-sans bg-gray-900 flex flex-col items-center justify-center text-white antialiased">
         <div className="w-full max-w-md mx-auto bg-gray-800 rounded-2xl shadow-2xl p-6 md:p-8 border-t-4 border-blue-400">
           <header className="text-center mb-6">
             <h1 className="text-4xl md:text-5xl font-bold text-blue-400 tracking-wider">
@@ -27,7 +27,7 @@ const WonOffers = (props) => {
           </header>
           <main>
             {wonCoupons.length > 0 ? (
-              <ul className="space-y-4 max-h-96 overflow-y-auto pr-2">
+              <ul className="space-y-4 max-h-64 overflow-y-auto pr-2 hide-scrollbar">
                 {wonCoupons.map((coupon) => (
                   <li
                     key={coupon.externalId}
