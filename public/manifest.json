@@ -1,6 +1,6 @@
 {
   "componentUrl": "https://remarkable-cassata-3f537a.netlify.app",
-  "componentVersion": "1.0.13",
+  "componentVersion": "1.0.17",
   "description": "<p>Gamify your promotions with Spinify. This app lets users spin for instant rewards, turning passive visitors into active, engaged customers with a fun and memorable experience.</p>",
   "manifestUrl": "https://remarkable-cassata-3f537a.netlify.app/manifest.json",
   "manifestVersion": 1,
@@ -22,19 +22,12 @@
       "name": "Wheel Color Theme",
       "dataType": "string",
       "inputType": "select",
-      "defaultValue": "default",
+      "defaultValue": "carnivalVibes",
       "options": [
-        { "label": "Default", "value": "default" },
-        { "label": "Soft Gray", "value": "softGray" },
-        { "label": "Nordic Calm", "value": "nordicCalm" },
-        { "label": "Elegant Beige", "value": "elegantBeige" },
-        { "label": "Coastal Mist", "value": "coastalMist" },
-        { "label": "Minimal Night", "value": "minimalNight" },
-        { "label": "Dusty Rose", "value": "dustyRose" },
-        { "label": "Sage Green", "value": "sageGreen" },
-        { "label": "Modern Blue", "value": "modernBlue" },
-        { "label": "Ash Snow", "value": "ashSnow" },
-        { "label": "Earth Stone", "value": "earthStone" }
+        { "label": "Carnival Vibes", "value": "carnivalVibes" },
+        { "label": "Enchanted Forest", "value": "enchantedForest" },
+        { "label": "Pastel Dream", "value": "pastelDream" },
+        { "label": "Tropical Heat", "value": "tropicalHeat" }
       ],
       "required": true
     },
@@ -148,6 +141,94 @@
       "dataType": "string",
       "inputType": "text",
       "defaultValue": "#FFFFFF",
+      "required": true
+    },
+    {
+      "id": "backgroundColor",
+      "name": "Background Color",
+      "dataType": "string",
+      "inputType": "text",
+      "defaultValue": "#ffffff",
+      "required": true
+    },
+    {
+      "id": "wonOfferTitle",
+      "name": "Won Offer Title",
+      "dataType": "string",
+      "inputType": "text",
+      "defaultValue": "MY OFFERS",
+      "required": true
+    },
+    {
+      "id": "wonOfferSubtitle",
+      "name": "Won Offer Subtitle",
+      "dataType": "string",
+      "inputType": "text",
+      "defaultValue": "Here are all the awesome deals you've won!",
+      "required": true
+    },
+    {
+      "id": "wonOfferRedeemText",
+      "name": "Won Offer Redeem Text",
+      "dataType": "string",
+      "inputType": "text",
+      "defaultValue": "Redeem",
+      "required": true
+    },
+    {
+      "id": "wonOfferNoOffersText",
+      "name": "Won Offer No Offers Text",
+      "dataType": "string",
+      "inputType": "text",
+      "defaultValue": "No Coupons Yet!",
+      "required": true
+    },
+    {
+      "id": "wonOfferNoOffersSubtext",
+      "name": "Won Offer No Offers Subtext",
+      "dataType": "string",
+      "inputType": "text",
+      "defaultValue": "You haven't won any coupons. Go back and try your luck on the slot machine!",
+      "required": true
+    },
+    {
+      "id": "wonOfferBackToSpinner",
+      "name": "Won Offer Back To Spinner",
+      "dataType": "string",
+      "inputType": "text",
+      "defaultValue": "Back to Spinner",
+      "required": true
+    },
+    {
+      "id": "spinnerViewTitle",
+      "name": "Spinner View Title",
+      "dataType": "string",
+      "inputType": "text",
+      "defaultValue": "LUCKY SPIN",
+      "required": true
+    },
+    {
+      "id": "spinnerViewSubTitle",
+      "name": "Spinner View Sub Title",
+      "dataType": "string",
+      "inputType": "text",
+      "defaultValue": "Spin to win an exclusive coupon!",
+      "required": true
+    },
+    {
+      "id": "spinnerViewViewMyOffers",
+      "name": "Spinner View My Offers",
+      "dataType": "string",
+      "inputType": "text",
+      "defaultValue": "View My Won Coupons",
+      "required": true
+    },
+    {
+      "id": "resultPopupOfferCodeText",
+      "name": "Result Popup Offer Code Text",
+      "dataType": "string",
+      "inputType": "text",
+      "defaultValue": "Your Offer Code",
       "required": true
     }
   ],

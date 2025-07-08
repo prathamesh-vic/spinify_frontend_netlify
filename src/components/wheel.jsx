@@ -28,22 +28,19 @@ const Wheel = (props) => {
   // --- Wheel Calculation Memos ---
   const segmentsExist = segments.length > 0;
   const segmentAngle = segmentsExist ? 360 / segments.length : 0;
+  const offerTextColor = config.colorThemes[wheelColorTheme][config.colorThemes[wheelColorTheme].length - 1]; // Pick last element
 
   // Generate the conic-gradient background string for the wheel
   const wheelGradient = useMemo(() => {
     if (!segmentsExist) return "transparent";
+    // Shuffle the colorTheme array only once per render
+    const colorTheme = [...config.colorThemes[wheelColorTheme].slice(0, 9)];
+    for (let k = colorTheme.length - 1; k > 0; k--) {
+      const j = Math.floor(Math.random() * (k + 1));
+      [colorTheme[k], colorTheme[j]] = [colorTheme[j], colorTheme[k]];
+    }
     const parts = segments.map((seg, i) => {
-      const colorTheme = config.colorThemes[wheelColorTheme];
-      // Ensure no two consecutive segments have the same color
-      let color;
-      if (i === 0) {
-        color = colorTheme[Math.floor(Math.random() * colorTheme.length)];
-      } else {
-        let prevColor = segments[i - 1]._assignedColor;
-        const availableColors = colorTheme.filter((c) => c !== prevColor);
-        color =
-          availableColors[Math.floor(Math.random() * availableColors.length)];
-      }
+      let color = colorTheme[i % colorTheme.length];
       // Store assigned color for next iteration
       seg._assignedColor = color;
       const start = i * segmentAngle;
@@ -148,7 +145,7 @@ const Wheel = (props) => {
                 >
                   <div
                     className="flex justify-center items-start h-1/2 pt-4 md:pt-6"
-                    style={{ color: config.textColor }}
+                    style={{ color: offerTextColor }}
                   >
                     <span
                       className="text-sm md:text-base font-bold select-none text-center px-2"

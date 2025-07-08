@@ -66,7 +66,9 @@ const ResultPopUp = (props) => {
             </p>
             {isWinner ? (
               <div className="bg-gray-700/50 border-2 border-dashed border-green-400 rounded-lg py-3 px-4 mb-6">
-                <p className="text-gray-400 text-sm">Your Offer Code:</p>
+                <p className="text-gray-400 text-sm">
+                  {config.text.resultOfferCodeText}:
+                </p>
                 <p className="text-white text-2xl font-mono font-bold tracking-widest">
                   {winningCoupon.offerCode}
                 </p>
@@ -97,7 +99,7 @@ const ResultPopUp = (props) => {
                   rel="noopener noreferrer"
                   className="w-full sm:w-1/2 bg-blue-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 transform hover:scale-105 text-center"
                 >
-                  Redeem Offer
+                  {config.text.wonOffersRedeemText}
                 </a>
                 <button
                   onClick={handleClosePopup}

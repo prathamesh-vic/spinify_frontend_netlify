@@ -35,10 +35,24 @@ async function main() {
       copyButton: settings.copyButtonText,
       copiedButton: settings.copiedButtonText,
       closeButton: settings.closeButtonText,
+      // Won Offers text
+      wonOffersTitle: settings.wonOfferTitle,
+      wonOffersSubtitle: settings.wonOfferSubtitle,
+      wonOffersRedeemText: settings.wonOfferRedeemText,
+      wonOffersNoOffersText: settings.wonOfferNoOffersText,
+      wonOffersNoOffersSubtext: settings.wonOfferNoOffersSubtext,
+      wonOffersBackToSpinnerText: settings.wonOfferBackToSpinner,
+      // Spinner page text
+      spinnerTitle: settings.spinnerViewTitle,
+      spinnerSubtitle: settings.spinnerViewSubTitle,
+      spinnerViewMyOffers: settings.spinnerViewViewMyOffers,
+      // Result Popup text
+      resultOfferCodeText: settings.resultPopupOfferCodeText,
     },
     pointerColor: settings.pointerColor,
     spinButtonColor: settings.spinButtonColor,
     spinButtonTextColor: settings.spinButtonTextColor,
+    backgroundColor: settings.backgroundColor,
   };
 
   const contextData = {

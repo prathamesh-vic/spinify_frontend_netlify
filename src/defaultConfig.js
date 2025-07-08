@@ -1,116 +1,54 @@
 const defaultConfig = {
   spinnerType: "wheel", // "wheel" or "slotMachine"
   colorThemes: {
-    default: [
-      "#FF0000",
-      "#FF7F00",
-      "#FFFF00",
-      "#00FF00",
-      "#0000FF",
-      "#4B0082",
-      "#8B00FF",
-      "#FF00FF",
+    carnivalVibes: [
+      "#FF4C4C", // Red
+      "#FFA534", // Orange
+      "#FFE347", // Yellow
+      "#6BF178", // Lime
+      "#42C5F5", // Sky Blue
+      "#3B3BF5", // Indigo
+      "#B84FFF", // Lavender
+      "#FF6B9A", // Pink
+      "#00C2A8",  // Teal,
+      "#FFFFFF" // text color
     ],
-    softGray: [
-      "#F7F7F7",
-      "#EFEFEF",
-      "#E1E1E1",
-      "#D8D8D8",
-      "#CFCFCF",
-      "#C1C1C1",
-      "#B1B1B1",
-      "#A0A0A0",
+    enchantedForest: [
+      "#2C3E50", // Charcoal Blue (Like a deep evening sky)
+      "#4A5C4D", // Forest Green (Deep, muted green of a canopy)
+      "#8C7B75", // Stone Brown (Warm, earthy color of weathered stone)
+      "#A3B18A", // Sage Green (Lighter, silvery-green of moss)
+      "#D4A373", // Golden Ochre (Warm, earthy yellow accent)
+      "#582F0E", // Deep Mahogany (Rich, dark reddish-brown for depth)
+      "#7F5539", // Tawny (Mid-tone, warm brown)
+      "#BDE0FE", // Misty Blue (A very light, soft blue accent)
+      "#E0E1DD", // Parchment (A soft, off-white for highlights)
+      "#F7F7F7"  // Text Color (A light, soft white for readability)
     ],
-    nordicCalm: [
-      "#F0F4F8",
-      "#E6EDF5",
-      "#D9E2EC",
-      "#CCDBE5",
-      "#BCCCDC",
-      "#AEC0D0",
-      "#9FB3C8",
-      "#8EA5B9",
+    pastelDream: [
+      "#FAD2E1", // Soft Rose
+      "#FFE0AC", // Light Peach
+      "#E2F0CB", // Mint Green
+      "#B5EAD7", // Aqua Mist
+      "#C7CEEA", // Pastel Purple
+      "#FFDAC1", // Blush
+      "#D5AAFF", // Lavender Cream
+      "#FFF5BA", // Light Lemon
+      "#A0E7E5",  // Cotton Aqua
+      "#000000"  // text color
     ],
-    elegantBeige: [
-      "#FAF3E0",
-      "#F4EAD5",
-      "#EFE0CA",
-      "#E8D8C3",
-      "#DECBB1",
-      "#D4BFAA",
-      "#CAB29A",
-      "#C4A484",
-    ],
-    coastalMist: [
-      "#E0FBFC",
-      "#D6F5F7",
-      "#C2DFE3",
-      "#B0CFDA",
-      "#9DB4C0",
-      "#8AA3AF",
-      "#76939E",
-      "#5C6B73",
-    ],
-    minimalNight: [
-      "#1A1A1A",
-      "#232323",
-      "#2C2C2C",
-      "#353535",
-      "#3D3D3D",
-      "#484848",
-      "#5A5A5A",
-      "#6C6C6C",
-    ],
-    dustyRose: [
-      "#F2E8E9",
-      "#EBDEE0",
-      "#DFD3D8",
-      "#D3C8CF",
-      "#CBB3BF",
-      "#BEA2B2",
-      "#B293A5",
-      "#A188A6",
-    ],
-    sageGreen: [
-      "#E8F5E9",
-      "#D8EFDA",
-      "#C8E6C9",
-      "#B6DCB8",
-      "#A5D6A7",
-      "#93CC95",
-      "#81C784",
-      "#70BD71",
-    ],
-    modernBlue: [
-      "#E3F2FD",
-      "#D0E9FC",
-      "#BBDEFB",
-      "#A7D3FA",
-      "#90CAF9",
-      "#78C0F8",
-      "#64B5F6",
-      "#51AAF5",
-    ],
-    ashSnow: [
-      "#FFFFFF",
-      "#F9F9F9",
-      "#F5F5F5",
-      "#EEEEEE",
-      "#DDDDDD",
-      "#CACACA",
-      "#B0B0B0",
-      "#9E9E9E",
-    ],
-    earthStone: [
-      "#EFE6DD",
-      "#E5D9CB",
-      "#DACBB9",
-      "#CDBBA7",
-      "#BEA989",
-      "#B2986F",
-      "#A68A64",
-      "#73675C",
-    ],
+    tropicalHeat: [
+      "#FF6F59", // Sunset Coral
+      "#FFB000", // Mango Yellow
+      "#FFD166", // Pineapple
+      "#06D6A0", // Palm Green
+      "#118AB2", // Ocean Blue
+      "#EF476F", // Hibiscus Red
+      "#8338EC", // Exotic Orchid
+      "#FB8500", // Papaya Orange
+      "#3A86FF",  // Tropical Sky
+      "#FFFFFF"  // text color
+    ]
   },
   textColor: "#FFFFFF",
   text: {

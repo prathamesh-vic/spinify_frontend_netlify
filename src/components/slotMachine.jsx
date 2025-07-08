@@ -106,7 +106,10 @@ const SlotMachine = (props) => {
 
   return (
     <>
-      <div className="font-sans bg-gray-900 flex flex-col items-center justify-center p-4 text-white antialiased">
+      <div
+        className="font-sans flex flex-col items-center justify-center p-4 text-white antialiased"
+        style={{ backgroundColor: config.spinnerColor || "#1e2939" }}
+      >
         <div
           className="w-full max-w-md mx-auto bg-gray-800 rounded-2xl shadow-2xl p-6 md:p-8 border-t-4 border-yellow-400"
           style={{

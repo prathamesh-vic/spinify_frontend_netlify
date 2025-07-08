@@ -19,10 +19,10 @@ const WonOffers = (props) => {
         <div className="w-full max-w-md mx-auto bg-gray-800 rounded-2xl shadow-2xl p-6 md:p-8 border-t-4 border-blue-400">
           <header className="text-center mb-6">
             <h1 className="text-4xl md:text-5xl font-bold text-blue-400 tracking-wider">
-              MY COUPONS
+              {config.text.wonOffersTitle}
             </h1>
             <p className="text-gray-400 mt-2">
-              Here are all the awesome deals you've won!
+              {config.text.wonOffersSubtitle}
             </p>
           </header>
           <main>
@@ -47,7 +47,7 @@ const WonOffers = (props) => {
                       rel="noopener noreferrer"
                       className="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors text-sm"
                     >
-                      Redeem
+                      {config.text.wonOffersRedeemText}
                     </a>
                   </li>
                 ))}
@@ -62,11 +62,10 @@ const WonOffers = (props) => {
                   😟
                 </span>
                 <h3 className="text-2xl font-semibold text-white mb-2">
-                  No Coupons Yet!
+                  {config.text.wonOffersNoOffersText}
                 </h3>
                 <p className="text-gray-400">
-                  You haven't won any coupons. <br /> Go back and try your luck
-                  on the slot machine!
+                  {config.text.wonOffersNoOffersSubtext}
                 </p>
               </div>
             )}
@@ -76,7 +75,7 @@ const WonOffers = (props) => {
               onClick={() => setCurrentView("spinner")}
               className="mt-6 w-full text-center text-blue-400 hover:text-blue-300 transition"
             >
-              ‹ Back to Spinner
+              ‹ {config.text.wonOffersBackToSpinnerText} ›
             </button>
           )}
         </div>

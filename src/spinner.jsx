@@ -22,7 +22,10 @@ export default function Spinner({
     [customConfig, defaultConfig]
   );
   return (
-    <div className="bg-gray-50 min-h-screen w-full flex items-center justify-center p-4">
+    <div
+      className="w-full flex items-center justify-center p-4"
+      style={{ backgroundColor: config.backgroundColor || "#111826" }}
+    >
       {/* To use the default configuration, just render:
         <OfferSpinner />
 
